@@ -1,0 +1,148 @@
+<?php
+error_reporting(0);
+include_once("../../clases/coneccion.php");
+include_once("../../clases/consultas.php");
+include_once("../../clases/javascript.php");
+$visita=$_GET["visitante"];
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>.:SICES:.</title>
+    <link href="../../css/bootstrap.css" rel="stylesheet">
+	<link href="../../css/sb-admin.css" rel="stylesheet">
+    <script src="../../js/jquery-2.2.4.min.js"></script>
+</head>
+<body>
+<div id="wrapper" align="center">
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+         <div class="navbar-header" >
+             <a class="navbar-brand" href="./">Bienvenido Sr.(a) Visitante a la AMAB<sup><small></small></sup> </a>
+          </div>
+    </nav>
+</div>
+<br><br><br><br><br><br>
+<div class="row vertical-offset-100">
+   <div class="col-md-4 col-md-offset-4">
+      <div class="panel panel-primary">
+         <div class="panel-heading">
+             <h3 class="panel-title" align="center">
+                <?php
+                   if($visita==1)
+                   {
+                      ?>
+                      <strong>Registro de Visitante Foraneo</strong>
+                      <?php
+                   }
+                   else
+                   {
+                      ?>
+                      <strong>Registro de Visitante Civil</strong>
+                      <?php
+                   }
+                ?>
+                </h3>
+             </div>
+            <div class="panel-heading">
+                <h3 class="panel-title" align="center">Ingresa tus datos:</h3>
+            </div>			
+	    <div class="panel-body">
+	       <form id="forregvis" name="forregvis" method="post" action="regvisitante2.php">
+	          <table class="table table-bordered" align="center">
+                     <?php
+                        if($visita==1)
+                        {
+                           ?>
+                           <tr>
+                              <td align="center">
+                                 <select class="form-control" name='grado' id='grado' size='1'/>
+			            <option value="0">Seleccione</option>
+				    <?php
+				       $data2= new ConsultaGrados();
+				       while($filadata2=$data2->Consulta())
+				       {
+				          echo ("
+					     <option value=".$filadata2['idgra'].">".$filadata2['nomgra']."</option>
+					  ");
+				       }
+				    ?>
+				 </select>
+                              </td>
+                           </tr>
+                              <?php
+                           }
+                           else
+                           {
+                              ?>
+                              <input type='hidden' name='grado' id='grado' autocomplete='off' value='29'/>
+                              <?php
+                           }
+                        ?>
+                        <tr>
+						<td align="center">
+							<input  class="form-control" placeholder="C&eacute;dula" type='text' name='cedula' id='cedula' maxlength='9' autocomplete='off' onkeypress="return validar7(event)" value="<?php echo $cedula;?>" style="text-transform:lowercase;" onkeyup="javascript:this.value=this.value.toLowerCase();"/>
+                        </td>
+                     </tr>
+					 <tr>
+						<td align="center">
+							<input  class="form-control" placeholder="Apellidos" type="text" name="apellido" id="apellido" autocomplete="off" onkeypress="return validar6(event)" style="text-transform:lowercase;" onkeyup="javascript:this.value=this.value.toLowerCase();"/>
+                        </td>
+                     </tr>
+					 <tr>
+					    <td align="center">
+							<input  class="form-control" placeholder="Nombres" type="text" name="nombre" id="nombre" autocomplete="off" onkeypress="return validar6(event)" style="text-transform:lowercase;" onkeyup="javascript:this.value=this.value.toLowerCase();"/>
+                            </td>
+                    </tr>
+                    <?php
+                        if($visita==1)
+                        {
+                           ?>
+                           <tr>
+                              <td align="center">
+                                 <input  class="form-control" placeholder="Unidad" type="text" name="unidad" id="unidad" autocomplete="off" onkeypress="return validar6(event)" style="text-transform:lowercase;" onkeyup="javascript:this.value=this.value.toLowerCase();"/>
+                              </td>
+                           </tr>
+                           <?php
+                        }
+                     ?>
+                    <tr>
+						<td align="center">
+              <input type='hidden' name='visitante' id='visitante' autocomplete='off' value='<?php echo $visita;?>'/>
+							<input class="btn btn-primary" type="submit" name="Submit" value="Ingresar"/>
+                        </td>
+					 </tr>
+					  <tr>
+                        <td align="center">
+							<input class="btn btn-primary" type="reset" name="reset" value="Borrar"/>
+                        </td>
+					 </tr>	
+            </form>
+            <form rol="form" id="forcontrol" name="forcontrol" method="post" action="control.php">
+						<td align="center" colspan="2">
+							<input class="btn btn-primary" type="submit" name="Submit" value="Atr&aacute;s"/>
+						</td>
+            </form>
+					</tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<?php
+include("../footer.php");
+?>
+</body>
+</html>
+<script src="../../js/bootstrap.js"></script>
+<script src="../../js/jquery-backstretch.js"></script>
+<script>
+    $(document).ready(function(){
+        $.backstretch([
+            
+            "../../img/fondosices1280x1024.jpg",
+
+        ], {duration: 7000, fade: 750});
+    });
+</script>
