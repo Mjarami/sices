@@ -18,3 +18,5 @@ base de datos mariaDB
 ![imagen](https://user-images.githubusercontent.com/95016410/215369580-f1881514-6d8c-48e4-ad44-79b92e8d2ae7.png)
 ![imagen](https://user-images.githubusercontent.com/95016410/215369598-22c039cc-6a08-4fb9-9afc-ffea2eb37c20.png)
 ![imagen](https://user-images.githubusercontent.com/95016410/215369613-0e7090d0-55b5-4cd3-ac13-7b12cdaff10e.png)
+![imagen](https://user-images.githubusercontent.com/95016410/215370602-d884e4a1-fd0d-483c-ad8d-538ea6815d63.png)
+![imagen](https://user-images.githubusercontent.com/95016410/215370640-7ecab7dd-d93a-4280-a552-ba4d31b1bb78.png)
