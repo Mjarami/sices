@@ -4,8 +4,7 @@ Sistema para el control de la entrada y salidad del personal
 version de php 5.6 y
 base de datos mariaDB
 
-
-![imagen](https://user-images.githubusercontent.com/95016410/215369320-926b06ab-9032-4c4c-b480-19788addd7d4.png)
+![imagen](https://user-images.githubusercontent.com/95016410/215641717-453d349f-6f8f-4faa-b58f-3fe50a9f8de0.png)
 ![imagen](https://user-images.githubusercontent.com/95016410/215369384-5c606e3e-a612-49f3-8c85-6275d5e8b241.png)
 ![imagen](https://user-images.githubusercontent.com/95016410/215369403-bdc2af02-a83b-4504-b2a7-3261c2f219a6.png)
 ![imagen](https://user-images.githubusercontent.com/95016410/215369427-cce790a5-9b67-4255-9bce-b71f63afe4be.png)
