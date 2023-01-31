@@ -2,7 +2,7 @@
 Sistema para el control de la entrada y salidad del personal
 
 version de php 5.6 y
-base de datos mariaDB
+base de datos mariaDB -- usuario: admin -- clave: 1234
 
 ![imagen](https://user-images.githubusercontent.com/95016410/215641717-453d349f-6f8f-4faa-b58f-3fe50a9f8de0.png)
 ![imagen](https://user-images.githubusercontent.com/95016410/215369384-5c606e3e-a612-49f3-8c85-6275d5e8b241.png)
@@ -16,4 +16,5 @@ base de datos mariaDB
 ![imagen](https://user-images.githubusercontent.com/95016410/215369569-34fb0678-1742-4e15-ab2e-9402418eaaf4.png)
 ![imagen](https://user-images.githubusercontent.com/95016410/215369580-f1881514-6d8c-48e4-ad44-79b92e8d2ae7.png)
 ![imagen](https://user-images.githubusercontent.com/95016410/215369598-22c039cc-6a08-4fb9-9afc-ffea2eb37c20.png)
-![imagen](https://user-images.githubusercontent.com/95016410/215369613-0e7090d0-55b5-4cd3-ac13-7b12cdaff10e.png)
+![imagen](https://user-images.githubusercontent.com/95016410/215649755-4f9065cd-dd51-4974-bc02-09c375cd43b7.png)
+
