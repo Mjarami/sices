@@ -8,5 +8,5 @@
 ?>
 
 <footer class="footer" align="center">
-    <p>Sistema para el  Control de Entrada y Salida del Personal Civil (SICES) <?= date('Y') ?>. Desarrollado por el Departamento <b>TIC</b> de la <b>Academia Militar de la Aviaci&oacute;n Bolivariana (AMAB)</b></p>
+    <p>Sistema para el  Control de Entrada y Salida del Personal Civil (SICES) 2016. Desarrollado por el Ing. Jaramillo Moises</p>
 </footer>

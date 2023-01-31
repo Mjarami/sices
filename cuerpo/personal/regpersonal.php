@@ -319,7 +319,7 @@ if($cons==1)
 <script>
     $(document).ready(function(){
         $.backstretch([
-            "../../img/fondosices1280x1024.jpg",
+            "../../img/conecciones-digitales.webp",
         ], {duration: 7000, fade: 750});
     });
 </script>

@@ -37,21 +37,11 @@ $fechaactual=date('Y-m-d');
     <table border="0" width="100%">
         <tr>
             <td align="left">
-                <div class="img"><img src="../img/escudo_umbv.jpg" border="0" width='100' height='100'/></div>
-            </td>
-            <td align="center">
+                <div class="img"><img src="../../img/fabrica.jpg" border="0" width='100' height='100'/></div>
                 <div class="text">
-                    Rep&uacute;blica Bolivariana de Venezuela<br>
-                    Ministerio del Poder Popular para la Defensa<br>
-                    Viceministerio del Poder Popular para la Defensa<br>
-                    Universidad Militar Bolivariana de Venezuela<br>
-                    Academia Militar de la Aviación Bolivariana<br>
-                    Grupo Académico<br><br>
-                    <strong style="font-size:20px;"></strong>
-                </div>
-            </td>
-            <td align="right">
-                <div class="img"><img src="../img/escudo_amab.jpg" border="0" width='100' height='100'/></div>
+                  Nombre de Empresa<br><br>
+                  <strong style="font-size:20px;"></strong>
+               </div>
             </td>
         </tr>
     </table>
@@ -59,7 +49,7 @@ $fechaactual=date('Y-m-d');
 	<table border="0" width="100%">
         <tr>
             <td align="right">
-                Boca de Río <?php echo $fechaactual;?>
+                <?php echo $fechaactual;?>
             </td>
         </tr>
     </table>
@@ -208,239 +198,7 @@ $fechaactual=date('Y-m-d');
 	    ");
         }
         }
-        if($p==2)
-        {
-        
-        $data= new ConsultaParteDiarioMilitar($fecha);
-        $cont=0;
-        $num_total_registros = $data->ConsultaPaginador();
-        if($num_total_registros>=1)
-        {
-            while($filadata=$data->Consulta())
-            {
-                $cont=$cont+1;?>
-                <tr align='center'>
-                <td><?php echo $cont;?></td>
-                <td><?php echo ucwords($filadata['nomgra']);?></td>
-                <td><?php echo ucwords($filadata['apeper']);?></td>
-                <td><?php echo ucwords($filadata['nomper']);?></td>
-                <td><?php echo ucwords($filadata['nomsit']);?></td>
-                <?php
-                if($filadata['idsit']!=1)
-                {
-                    if($filadata['idsit']==2 || $filadata['idsit']==3 || $filadata['idsit']==4 || $filadata['idsit']==5)
-                    {?>
-                        <td><?php echo $filadata['fecpro'];?></td>
-                        <td>No a ingresado a la AMAB</td>
-                        <td><?php echo $filadata['haspar'];?></td>
-                        <td>No se a retirado de la AMAB</td><?php
-                    }
-                    else
-                    {
-                        $proce1= new ConsultaProcesoEspecifico2($filadata['idper']);
-                        $filaproce1=$proce1->Consulta();
-                        $num_total_registros1 = $proce1->ConsultaPaginador();
-                        if($num_total_registros1>=1)
-                        {
-                            if($filaproce1['idsit']==6 || $filaproce1['idsit']==7)
-                            {?>
-                                <td><?php echo $filaproce1['fecpro'];?></td>
-                                <td>No a ingresado a la AMAB</td><?php
-                            }
-                            else
-                            {?>
-                                <td><?php echo $filaproce1['fecpro'];?></td>
-                                <td><?php echo $filaproce1['horpro'];?></td><?php
-                            }
-                        }
-                        else
-                        {?>
-                            <td><?php echo $filadata['fecpro'];?></td>
-                            <td>No a ingresado a las instalaciones</td><?php
-                        }
-                        $proce2= new ConsultaProcesoEspecifico3($filadata['idper'], $fecha);
-                        $filaproce2=$proce2->Consulta();
-                        $num_total_registros2 = $proce2->ConsultaPaginador();
-                        if($num_total_registros2>=1)
-                        {?>
-                            <td><?php echo $filaproce2['fecpro'];?></td>
-                            <td><?php echo $filaproce2['horpro'];?></td><?php
-                        }
-                        else
-                        {?>
-                            <td colspan='2'><?php echo "No se a retirado";?></td><?php
-                        }
-                    }
-                }
-                else
-                {
-                    $proce3= new ConsultaProcesoEspecifico2($filadata['idper']);
-                    $filaproce3=$proce3->Consulta();
-                    $num_total_registros3 = $proce3->ConsultaPaginador();
-                    if($num_total_registros3>=1)
-                    {?>
-                        <td><?php echo $filaproce3['fecpro'];?></td>
-                        <td><?php echo $filaproce3['horpro'];?></td><?php
-                    }
-                    else
-                    {?>
-                        <td colspan='2'>No a ingresado a la AMAB</td><?php
-                    }
-                    $proce4= new ConsultaProcesoEspecifico3($filadata['idper'], $fecha);
-                    $filaproce4=$proce4->Consulta();
-                    $num_total_registros4 = $proce4->ConsultaPaginador();
-                    if($num_total_registros4>=1)
-                    {?>
-                        <td><?php echo $filaproce4['fecpro'];?></td>
-                        <td><?php echo $filaproce4['horpro'];?></td><?php
-                    }
-                    else
-                    {?>
-                        <td colspan='2'><?php echo "No se a retirado";?></td><?php
-                    }
-                }
-                ?>
-                <td><?php echo $filadata['obspar'];?></td>
-                </tr><?php
-            }
-        }
-        else
-        {
-            echo ("
-	       <tr align='center'>
-	             <td colspan='11'>No se encontraron registros</td>
-
-	          </tr>
-               </table>
-	    ");
-        }
-        }
-        if($p==3)
-        {
-        
-        $data= new ConsultaParteDiario($fecha);
-        $cont=0;
-        $num_total_registros = $data->ConsultaPaginador();
-        if($num_total_registros>=1)
-        {
-            while($filadata=$data->Consulta())
-            {
-                $cont=$cont+1;?>
-                <tr align='center'>
-                <td><?php echo $cont;?></td>
-                <td><?php echo ucwords($filadata['nomgra']);?></td>
-                <td><?php echo ucwords($filadata['apeper']);?></td>
-                <td><?php echo ucwords($filadata['nomper']);?></td>
-                <td><?php echo ucwords($filadata['nomsit']);?></td>
-                <?php
-                if($filadata['idsit']!=1)
-                {
-                    if($filadata['idsit']==2 || $filadata['idsit']==3 || $filadata['idsit']==4 || $filadata['idsit']==5)
-                    {?>
-                        <td><?php echo $filadata['fecpro'];?></td>
-                        <td>No a ingresado a la AMAB</td>
-                        <td><?php echo $filadata['haspar'];?></td>
-                        <td>No se a retirado de la AMAB</td><?php
-                    }
-                    else
-                    {
-                        $proce1= new ConsultaProcesoEspecifico2($filadata['idper']);
-                        $filaproce1=$proce1->Consulta();
-                        $num_total_registros1 = $proce1->ConsultaPaginador();
-                        if($num_total_registros1>=1)
-                        {
-                            if($filaproce1['idsit']==6 || $filaproce1['idsit']==7)
-                            {?>
-                                <td><?php echo $filaproce1['fecpro'];?></td>
-                                <td>No a ingresado a la AMAB</td><?php
-                            }
-                            else
-                            {?>
-                                <td><?php echo $filaproce1['fecpro'];?></td>
-                                <td><?php echo $filaproce1['horpro'];?></td><?php
-                            }
-                        }
-                        else
-                        {?>
-                            <td><?php echo $filadata['fecpro'];?></td>
-                            <td>No a ingresado a las instalaciones</td><?php
-                        }
-                        $proce2= new ConsultaProcesoEspecifico3($filadata['idper'], $fecha);
-                        $filaproce2=$proce2->Consulta();
-                        $num_total_registros2 = $proce2->ConsultaPaginador();
-                        if($num_total_registros2>=1)
-                        {?>
-                            <td><?php echo $filaproce2['fecpro'];?></td>
-                            <td><?php echo $filaproce2['horpro'];?></td><?php
-                        }
-                        else
-                        {?>
-                            <td colspan='2'><?php echo "No se a retirado";?></td><?php
-                        }
-                    }
-                }
-                else
-                {
-                    $proce3= new ConsultaProcesoEspecifico2($filadata['idper']);
-                    $filaproce3=$proce3->Consulta();
-                    $num_total_registros3 = $proce3->ConsultaPaginador();
-                    if($num_total_registros3>=1)
-                    {?>
-                        <td><?php echo $filaproce3['fecpro'];?></td>
-                        <td><?php echo $filaproce3['horpro'];?></td><?php
-                    }
-                    else
-                    {?>
-                        <td colspan='2'>No a ingresado a la AMAB</td><?php
-                    }
-                    $proce4= new ConsultaProcesoEspecifico3($filadata['idper'], $fecha);
-                    $filaproce4=$proce4->Consulta();
-                    $num_total_registros4 = $proce4->ConsultaPaginador();
-                    if($num_total_registros4>=1)
-                    {?>
-                        <td><?php echo $filaproce4['fecpro'];?></td>
-                        <td><?php echo $filaproce4['horpro'];?></td><?php
-                    }
-                    else
-                    {?>
-                        <td colspan='2'><?php echo "No se a retirado";?></td><?php
-                    }
-                }
-                ?>
-                <td><?php echo $filadata['obspar'];?></td>
-                </tr><?php
-            }
-        }
-        else
-        {
-            echo ("
-	       <tr align='center'>
-	             <td colspan='10'>No se encontraron registros</td>
-	          </tr>
-               </table>
-	    ");
-        }
-        }
-        ?> 
-
-<div class="letterhead" style="margin-bottom:80px;">
-    <table border="0" width="100%">
-        <tr>
-            <td align="center">
-                <div class="text">
-                   <br><br>
-                   ____________________________________<br>
-                   CNEL. CARLOS ARTURO ROMERO PADRÓN<br>
-                   COMANDANTE DEL GRUPO ACADÉMICO<br><br>
-                   ¡CHÁVEZ VIVE… LA PATRIA SIGUE!<br>
-                   “INDEPENDENCIA Y PATRIA SOCIALISTA… VIVIREMOS Y VENCEREMOS”<br>
-                   LA FORTUNA AYUDA A LOS AUDACES
-                   <strong style="font-size:20px;"></strong>
-                </div>
-            </td>
-        </tr>
-    </table>
-</div>
+        ?>
 </div>
 <script>
     $(document).ready(function ()

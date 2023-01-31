@@ -42,26 +42,10 @@ if($_SESSION['rol'] != 1)
 					<td align='center'><br>
 						<form id='forpersonal' name='forpersonal' method='post' action='../reportes/repparte.php'>
                           <input type='hidden' name='personal' id='personal' autocomplete='off' value='1'/>
-                          <input class="btn btn-primary" type='submit' name='Submit' value='Parte Personal Civil'/>
+                          <input class="btn btn-primary" type='submit' name='Submit' value='Parte Personal'/>
 						</form>
                     </td>
-                 </tr>				 
-				 <tr>
-					<td align='center'><br>
-					   <form id='forpersonal' name='forpersonal' method='post' action='../reportes/repparte.php'>   
-						  <input type='hidden' name='personal' id='personal' autocomplete='off' value='2'/>                
-						  <input class="btn btn-primary" type='submit' name='Submit' value='Parte Personal Militar'/>
-					   </form>
-					</td>
-				</tr>
-				 <tr>
-					<td align='center'><br>
-					   <form id='forpersonal' name='forpersonal' method='post' action='../reportes/repparte.php'>   
-						  <input type='hidden' name='personal' id='personal' autocomplete='off' value='3'/>                
-						  <input class="btn btn-primary" type='submit' name='Submit' value='Parte General'/>
-					   </form>
-					</td>
-				</tr>		
+                 </tr>		
 				<tr>
 					<td align='center'><br>
 						<form id='forsalir' name='forsalir' method='post' action='../index.php'>
@@ -85,7 +69,7 @@ include("../footer.php");
 <script>
     $(document).ready(function(){
         $.backstretch([
-            "../../img/fondosices1280x1024.jpg",
+            "../../img/conecciones-digitales.webp",
         ], {duration: 7000, fade: 750});
     });
 </script>

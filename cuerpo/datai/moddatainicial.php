@@ -554,14 +554,12 @@ if($envio==7)
 						<select class="form-control" name="grupo" id="grupo" size="1"/>
 						<option value="<?php echo $idgru;?>"><?php echo $nomgru; ?></option>
 							<?php
-							$data= new ConsultaGrupos();
-							while($filadata=$data->Consulta())
-							{
-							?>
-						<option value="<?php echo $filadata['idgru'];?> ><?php echo
-						 $filadata['nomgru'];?>" </option>
-							<?php
-							}
+                            $data = new ConsultaGrupos();
+                            while ($filadata = $data->Consulta()) {
+                                echo("
+                                   <option value=" . $filadata['idgru'] . ">" . $filadata['nomgru'] . "</option>
+                                    ");
+                            }
 							?>
 						</select></label>
 					</td>
@@ -675,7 +673,7 @@ include("../footer.php");
 <script>
     $(document).ready(function(){
         $.backstretch([
-            "../../img/fondosices1280x1024.jpg",
+            "../../img/conecciones-digitales.webp",
         ], {duration: 7000, fade: 750});
     });
 </script>

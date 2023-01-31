@@ -152,21 +152,7 @@ else
                 </tr>
                 </form>
                 <tr>
-                   <script language="Javascript"> 
-                      function confirmar()
-                      { 
-                         confirmar=confirm("\u00BFEres militar?"); 
-                         if (confirmar) 
-                         {
-                            window.location='regvisitante.php?visitante=1';
-                         }
-                         else
-                         {
-                            window.location='regvisitante.php?visitante=2';
-                         }
-                      } 
-                   </script>
-                <form id='forregvisitante' name='forregvisitante' method='post' action='javascript:confirmar()'>
+                <form id='forregvisitante' name='forregvisitante' method='post' action='regvisitante.php'>
                     <td align='center' colspan='2'>
 						<input class="btn btn-primary" type='submit' name='Submit' value='Visitantes'/>
                     </td>
@@ -197,7 +183,7 @@ include("../footer.php");
 <script>
     $(document).ready(function(){
         $.backstretch([           
-            "../../img/fondosices1280x1024.jpg",
+            "../../img/conecciones-digitales.webp",
         ], {duration: 7000, fade: 750});
     });
 </script>
